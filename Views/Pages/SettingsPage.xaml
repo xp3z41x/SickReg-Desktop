@@ -1,0 +1,54 @@
+<Page x:Class="SickReg.Desktop.Views.Pages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:vm="clr-namespace:SickReg.Desktop.ViewModels"
+      d:DataContext="{d:DesignInstance vm:SettingsViewModel}"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Title="Configuracoes"
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}">
+
+    <Grid Margin="36,24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Text="Configuracoes" FontSize="28" FontWeight="Bold" Margin="0,0,0,32" />
+
+        <!-- Settings -->
+        <StackPanel Grid.Row="1">
+            <!-- Theme -->
+            <ui:CardControl Margin="0,0,0,8">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ui:SymbolIcon Grid.Column="0" Symbol="DarkTheme24" FontSize="24" Margin="0,0,16,0" />
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="Tema Escuro" FontSize="14" FontWeight="SemiBold" />
+                            <TextBlock Text="Alterna entre tema claro e escuro" FontSize="12" Opacity="0.6" />
+                        </StackPanel>
+                        <ToggleButton Grid.Column="2" IsChecked="{Binding IsDarkTheme}" />
+                    </Grid>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+        </StackPanel>
+
+        <!-- App Info -->
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,16">
+            <TextBlock Text="SickReg Desktop" FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Center" />
+            <TextBlock FontSize="12" Opacity="0.5" HorizontalAlignment="Center" Margin="0,4,0,0">
+                <Run Text="Versao " /><Run Text="{Binding AppVersion, Mode=OneWay}" />
+            </TextBlock>
+            <TextBlock Text="Limpeza Inteligente de Registro" FontSize="12" Opacity="0.4" HorizontalAlignment="Center" Margin="0,2,0,0" />
+        </StackPanel>
+    </Grid>
+</Page>

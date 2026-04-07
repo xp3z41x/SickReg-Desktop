@@ -1,0 +1,19 @@
+<Application x:Class="SickReg.Desktop.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:converters="clr-namespace:SickReg.Desktop.Converters">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ui:ThemesDictionary Theme="Dark" />
+                <ui:ControlsDictionary />
+            </ResourceDictionary.MergedDictionaries>
+
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converters:BoolToVisibilityConverter x:Key="BoolToVisConverter" />
+            <converters:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisConverter" />
+            <converters:CleanButtonTextConverter x:Key="CleanButtonTextConverter" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
